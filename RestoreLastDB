@@ -1,0 +1,5 @@
+Localizar último SnapShot
+
+aws rds describe-db-snapshots --region us-east-1 --snapshot-type automated --query "DBSnapshots[?DBInstanceIdentifier=='fin-prd'].DBSnapshotIdentifier" | tail -2 | head -1
+
+
