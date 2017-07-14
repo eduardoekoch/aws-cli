@@ -9,3 +9,6 @@ aws rds describe-db-snapshots --region us-east-1 --snapshot-type automated --que
 Restore do Database
 
 aws rds restore-db-instance-from-db-snapshot --db-instance-identifier fin-stg --db-subnet-group-name bioritmo-sub-rds --publicly-accessible --db-snapshot-identifier arn:aws:rds:us-east-1:174928946679:snapshot:rds:fin --db-instance-class db.t2.small --no-multi-az
+
+Localiza o DB (Fin-stg)
+aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`fin-stg`]'
