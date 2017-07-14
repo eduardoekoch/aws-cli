@@ -12,3 +12,6 @@ aws rds restore-db-instance-from-db-snapshot --db-instance-identifier fin-stg --
 
 Localiza o DB (Fin-stg)
 aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`fin-stg`]'
+
+Status do RDS
+aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`fin-stg`]'.DBInstanceStatus --output text
