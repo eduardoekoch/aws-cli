@@ -16,5 +16,5 @@ aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`fin-s
 Deletar RDS
  aws rds delete-db-instance --db-instance-identifier fin-stg --skip-final-snapshot
  
-Registrar o RDS na Stack
+Registrar o RDS na Stack do OpsWorks
 aws opsworks register-rds-db-instance --region us-east-1 --stack-id d72553d4-8727-448c-9b00-f024f0ba1b06 --rds-db-instance-arn arn:aws:rds:us-west-2:123456789012:db:clitestdb  --db-user cliuser --db-password some23!pwd
