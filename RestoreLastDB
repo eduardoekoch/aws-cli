@@ -1,13 +1,10 @@
 Localizar último SnapShot
-
 aws rds describe-db-snapshots --region us-east-1 --snapshot-type automated --query "DBSnapshots[?DBInstanceIdentifier=='fin-prd'].DBSnapshotIdentifier" | tail -2 | head -1
 
 Último Snapshot - Retornando o Arn
-
 aws rds describe-db-snapshots --region us-east-1 --snapshot-type automated --query "DBSnapshots[?DBInstanceIdentifier=='fin-prd'].DBSnapshotArn" | tail -2 | head -1
 
 Restore do Database
-
 aws rds restore-db-instance-from-db-snapshot --db-instance-identifier fin-stg --db-subnet-group-name bioritmo-sub-rds --publicly-accessible --db-snapshot-identifier arn:aws:rds:us-east-1:174928946679:snapshot:rds:fin --db-instance-class db.t2.small --no-multi-az
 
 Localiza o DB (Fin-stg)
@@ -15,3 +12,5 @@ aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`fin-s
 
 Status do RDS
 aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`fin-stg`]'.DBInstanceStatus --output text
+
+Deletar RDS
