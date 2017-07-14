@@ -14,3 +14,4 @@ Status do RDS
 aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`fin-stg`]'.DBInstanceStatus --output text
 
 Deletar RDS
+ aws rds delete-db-instance --db-instance-identifier fin-stg --skip-final-snapshot
