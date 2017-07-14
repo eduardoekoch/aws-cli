@@ -24,4 +24,4 @@ until [ status != 'deleting' ]
   rds_stg=$aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`fin-stg`].DBInstanceArn'
  
 #Registra o RDS na Stack do Fin-Stg
-  aws opsworks register-rds-db-instance --region us-east-1 --stack-id f77c5a79-b55d-48c3-b4cb-da2f6827d3a9 --rds-db-instance-arn fin_stg --db-user deploy --db-password 81haDHuRWj  
+  aws opsworks register-rds-db-instance --region us-east-1 --stack-id f77c5a79-b55d-48c3-b4cb-da2f6827d3a9 --rds-db-instance-arn fin_stg --db-user deploy --db-password password
