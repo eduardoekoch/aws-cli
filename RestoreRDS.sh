@@ -7,6 +7,7 @@
 aws rds delete-db-instance --db-instance-identifier fin-stg --skip-final-snapshot
 
 #Aguardar que o Status seja igual a " "
+status='new'
 
 until [ status != 'deleting' ]
  do
