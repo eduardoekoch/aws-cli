@@ -1,20 +1,20 @@
 Localizar último SnapShot
-aws rds describe-db-snapshots --region us-east-1 --snapshot-type automated --query "DBSnapshots[?DBInstanceIdentifier=='fin-prd'].DBSnapshotIdentifier" | tail -2 | head -1
+aws rds describe-db-snapshots --region us-east-1 --snapshot-type automated --query "DBSnapshots[?DBInstanceIdentifier=='app-prd'].DBSnapshotIdentifier" | tail -2 | head -1
 
 Último Snapshot - Retornando o Arn
-aws rds describe-db-snapshots --region us-east-1 --snapshot-type automated --query "DBSnapshots[?DBInstanceIdentifier=='fin-prd'].DBSnapshotArn" | tail -2 | head -1
+aws rds describe-db-snapshots --region us-east-1 --snapshot-type automated --query "DBSnapshots[?DBInstanceIdentifier=='app-prd'].DBSnapshotArn" | tail -2 | head -1
 
 Restore do Database
-aws rds restore-db-instance-from-db-snapshot --db-instance-identifier fin-stg --db-subnet-group-name bioritmo-sub-rds --publicly-accessible --db-snapshot-identifier arn:aws:rds:us-east-1:174928946679:snapshot:rds:fin --db-instance-class db.t2.small --no-multi-az
+aws rds restore-db-instance-from-db-snapshot --db-instance-identifier app-stg --db-subnet-group-name subnet-sub-rds --publicly-accessible --db-snapshot-identifier arn:aws:rds:us-east-1:174928946679:snapshot:rds:app --db-instance-class db.t2.small --no-multi-az
 
-Localiza o DB (Fin-stg)
-aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`fin-stg`]'
+Localiza o DB (app-stg)
+aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`app-stg`]'
 
 Status do RDS
-aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`fin-stg`]'.DBInstanceStatus --output text
+aws rds describe-db-instances --query 'DBInstances[?DBInstanceIdentifier==`app-stg`]'.DBInstanceStatus --output text
 
 Deletar RDS
- aws rds delete-db-instance --db-instance-identifier fin-stg --skip-final-snapshot
+ aws rds delete-db-instance --db-instance-identifier app-stg --skip-final-snapshot
  
 Registrar o RDS na Stack do OpsWorks
 aws opsworks register-rds-db-instance --region us-east-1 --stack-id d72553d4-8727-448c-9b00-f024f0ba1b06 --rds-db-instance-arn arn:aws:rds:us-west-2:123456789012:db:clitestdb  --db-user cliuser --db-password some23!pwd
