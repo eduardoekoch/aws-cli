@@ -1,1 +1,1 @@
-aws s3 ls --summarize --human-readable --recursive s3://racesystem-staging
+aws s3 ls --summarize --human-readable --recursive s3://bucket
