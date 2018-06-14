@@ -1,1 +1,1 @@
-aws s3 cp s3://smartsystem-development/ s3://racesystem-staging/ --recursive
+aws s3 cp s3://bucket-development/ s3://bucket-staging/ --recursive
